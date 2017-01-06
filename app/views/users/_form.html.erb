@@ -1,0 +1,56 @@
+
+
+<%= form_for(@user) do |f| %>
+
+  <%= render 'shared/error_messages' %>
+
+  <br />
+  <legend>
+    Account Information
+  </legend>
+
+  <div class="form-group">
+  <%= f.label :name, nil, class: "form-label" %>
+  <%= f.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+  <%= f.label :password, nil, class: "form-label" %>
+  <%= f.password_field :password, class: "form-control" %>
+  </div>
+
+  <br />
+  <legend>
+    User Details
+  </legend>
+
+  <div class="form-group">
+  <%= f.label :height, nil, class: "form-label" %>
+  <%= f.text_field :height, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+  <%= f.label :happiness, nil, class: "form-label" %>
+  <%= f.number_field :happiness, min: 1, max: 5,  class: "form-control"  %>
+  </div>
+
+  <div class="form-group">
+  <%= f.label :nausea, nil, class: "form-label" %>
+  <%= f.number_field :nausea, min: 1, max: 5, class: "form-control"  %>
+  </div>
+
+  <div class="form-group">
+  <%= f.label :tickets, nil, class: "form-label" %>
+  <%= f.number_field :tickets, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+  <%= f.label :admin?, nil, class: "form-check-label" %>
+  <%= f.check_box :admin, class: "form-check-input" %>
+  </div>
+
+
+
+  <%= f.submit %>
+
+<% end %>
