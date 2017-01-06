@@ -1,8 +1,33 @@
-<% @attractions.each do |a| %>
-      <h1><%= a.name %></h1>
-      <% if current_user && current_user.admin %>
-      <%= link_to "Show #{a.name}", attraction_path(a) %>
-      <% else %>
-      <%= link_to "Go on #{a.name}", attraction_path(a) %>
+<h1>Listing attractions</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td><strong>Picture</strong></td>
+      <td><strong>Name</strong></td>
+      <td><strong>Tickets</strong></td>
+      <td><strong>Details</strong></td>
+    </tr>
+      <% @attractions.each do |a| %>
+
+      <tr>
+        <td><img src="http://www.allthingsclipart.com/05/amusement.park.05.jpg" width="100" data-pin-nopin="true"></td>
+        <td><%= a.name %></td>
+        <td><%= a.tickets %></td>
+          <td>
+            <% if current_user && current_user.admin %>
+            <%= link_to "Show #{a.name}", attraction_path(a) %>
+            <% else %>
+            <%= link_to "Go on #{a.name}", attraction_path(a) %>
+            <% end %>
+          </td>
+      </tr>
       <% end %>
-    <% end %>
+
+  </tbody>
+</table>

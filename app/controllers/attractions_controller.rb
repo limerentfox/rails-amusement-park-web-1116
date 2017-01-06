@@ -21,7 +21,7 @@ class AttractionsController < ApplicationController
   end
 
   def show
-    @user = User.find(session[:user_id])
+
     @attraction = Attraction.find(params[:id])
   end
 
@@ -29,8 +29,9 @@ class AttractionsController < ApplicationController
   end
 
   def update_user
-    @user = User.find(session[:user_id])
+
     @attraction = Attraction.find(params[:id])
+    @user = User.find(session[:user_id])
     @ride = Ride.create(user_id: @user.id, attraction_id: @attraction.id)
     flash[:message] = @ride.take_ride
 

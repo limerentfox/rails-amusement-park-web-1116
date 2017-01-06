@@ -1,6 +1,7 @@
 
 
 <%= form_tag '/signin' do %>
+<%= flash[:notice] %>
 
 <div class="form-group">
   <%= label_tag :name, nil, class: "form-label" %>
